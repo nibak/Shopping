@@ -25,7 +25,10 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Users</a>
           </li>
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -68,7 +71,7 @@
     <footer class="footer bg-light">
           <div class="container">
             <div class="row">
-              <div class="col-sm ">
+              <div class="col-sm align-self-cente">
                    <p>Lorem ipsum dolor sit ameton proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               </div>
              <div class="col-sm">
@@ -78,7 +81,7 @@
             </div>
             <div class="row">
               <div class="d-flex flex-column">
-                <p class="text-muted align-self-center">Copyright 2017.</p>
+                <span class="text-muted align-self-center">Copyright 2017.</span>
 
               </div>
             </div>
