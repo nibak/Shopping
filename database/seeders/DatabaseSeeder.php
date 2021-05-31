@@ -11,8 +11,12 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        // \App\Models\User::factory(10)->create();
-    }
+     public function run()
+         {
+           \App\Models\User::factory(1)->create(['email' => 'a@a.com']);
+             \App\Models\User::factory(9)->create();
+             \App\Models\category::factory(9)->create();
+             \App\Models\product::factory(9)->create();
+
+         }
 }

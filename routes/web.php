@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,10 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () { return redirect('/products'); });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('products', ProductController::class);
+Route::resource('category', CategoryController::class);
+// Route::resource('shop', ProductController::class)->only(['index','show','create']);
+// Route::resource('shop', ProductController::class)->only(['store','edit','store','update','destroy'])->middleware('auth');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
