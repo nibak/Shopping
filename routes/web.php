@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('products', ProductController::class);
 Route::resource('category', CategoryController::class);
+Route::get('/viewProduct/{category_id}', 'App\Http\Controllers\CategoryController@viewProduct')->name('viewProduct'); 
+
 // Route::resource('shop', ProductController::class)->only(['index','show','create']);
 // Route::resource('shop', ProductController::class)->only(['store','edit','store','update','destroy'])->middleware('auth');
 

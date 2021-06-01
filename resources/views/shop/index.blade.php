@@ -1,6 +1,15 @@
 
 @extends('layouts.app')
 @section('content')
+<div class="row"style="margin-bottom:20px">
+  <div class="col-6">
+    <h4>Products</h4>
+  </div>
+  @auth
+  <div class="col-6 d-flex justify-content-end"><a class="btn  btn-primary" href="/products/create">ADD NEW Product</a></div>
+  @endauth
+
+</div>
 <div class="row ">
     @foreach($products as $product)
     <div class="col-sm-4 my-1" style="width: 18rem;">
@@ -12,7 +21,7 @@
           @method('DELETE')
           @csrf
 
-          <a class="btn btn-primary mx-1 " href="/products/{{$product->id}}">Buy</a>
+          <a class="btn btn-primary mx-1 " href="/products/{{$product->id}}/">Buy</a>
             @auth
           <a class="btn btn-primary mx-1" href="/products/{{$product->id}}/edit">Edit</a>
           <button type="submit" title="delete" class="btn btn-danger mx-1" >Delete</button>

@@ -2,30 +2,23 @@
 @section('content')
 
     <div class="form-content">
-    <form method="product" action="/products/{{$product->id}}">
             @method('PUT')
             @csrf
 
             <div class="row">
-              <div class="form-group col-6">
-                <label for="title">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{$product->title}}">
-              </div>
-
-              <div class="form-group col-6">
-                <label for="title">Category</label>
-                <input type="text" class="form-control @error('colour') is-invalid @enderror" id="category" name="catagory" value="{{$category->category_id}}">
-              </div>
-            </div>
-
-            <div class="row">
-              <label for="content">Content</label>
-              <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10">{{$product->content}}</textarea>
+               <div class="col-6">
+                <img class="card-img-top" src="/storage/images/{{ $product->image }}" alt="Card image cap">
+               </div>
+               <div class=" col-6">
+                <h3 class="card-title">{{$product->title}}</h3>
+                <p class="card-text">{{ $product->content }}</p>
+               </div>
             </div>
             <br>
-        <a class="btn btn-warning mx-1" href="/products/">Cancel</a>
-    </form>
+            <br>
   </div>
+  <div class=" d-flex justify-content-end"><a class="btn  btn-primary" href="/products/">Back</a></div>
+
 </div>
 
 @endsection

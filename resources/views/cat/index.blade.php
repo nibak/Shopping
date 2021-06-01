@@ -1,14 +1,14 @@
 
 @extends('layouts.app')
 @section('content')
-<div class="container">
 
-<div class="col-12">
   <div class="row"style="margin-bottom:20px">
     <div class="col-6">
       <h4>Categories</h4>
     </div>
-    <div class="col-6 d-flex justify-content-end"><a class="btn  btn-primary" href="/clients/new">ADD NEW Category</a></div>
+    @auth
+    <div class="col-6 d-flex justify-content-end"><a class="btn  btn-primary" href="/category/create">ADD NEW Category</a></div>
+    @endauth
   </div>
   <div class="row">
     <table class="table">
@@ -25,8 +25,10 @@
                   <td>{{$category->id}}</td>
                   <td>{{$category->title}}</td>
                   <td>
-                      <a class="btn btn-success"href="#">EDIT</a>
-                      <a class="btn btn-success"href="#">BOOK A ROOM</a>
+                    @auth
+                      <a class="btn btn-success"href="/categories/{{$category->id}}/edit">EDIT</a>
+                      @endauth
+                      <a class="btn btn-success"href="{{route('viewProduct',$category->id)}}">View Product</a>
                   </td>
               </tr>
           @endforeach
@@ -35,12 +37,6 @@
         </tbody>
     </table>
   </div>
-
-
-</div>
-
-</div>
-
 
 
 

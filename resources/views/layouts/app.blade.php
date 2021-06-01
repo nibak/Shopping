@@ -63,12 +63,12 @@
       </div>
     </nav>
     <main>
-        <div class="container">
+        <div class="container"style="margin-top:20px">
             @yield('content')
         </div>
     </main>
 
-    <footer class="footer bg-light">
+    <footer class="footer bg-light" style="margin-top:40px">
           <div class="container">
             <div class="row">
               <div class="col-sm align-self-cente">

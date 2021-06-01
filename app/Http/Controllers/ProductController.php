@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
+use App\Models\category;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -18,6 +19,12 @@ class ProductController extends Controller
       $products = product::all();
       return view('shop.index', ['products'=>$products]);
     }
+    public function viewProduct($category_id)
+    {
+      $data =[];
+      $data['category']= category::where('category_id',$category_id)->get();
+      return view('cat.show', $data);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +33,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('shop.create');
     }
 
     /**
@@ -37,22 +44,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
       request()->validate([
         'title'=> 'required',
         'content'=> 'required',
         'image'=> 'required',
-        'category_id'=> 'required',
-]);
+             ]);
 
-$product = new post();
-$product->title = request('title');
-$product->colour = request('content');
-$product->content = request('image');
-$product->user_id = Auth::user()->id;
-$product->category_id =category()->id;
-$product->save();
+             $product = new post();
+             $product->title = request('title');
+             $product->content = request('content');
+             $product->image = request('image');
+             $product->user_id = Auth::user()->id;
+             $product->save();
 
-return redirect('products');
+             return redirect('products');
     }
 
     /**
@@ -63,7 +69,7 @@ return redirect('products');
      */
     public function show(product $product)
     {
-        return view('products.show', ['product'=>$product]);
+        return view('shop.show', ['product'=>$product]);
     }
 
     /**
@@ -90,13 +96,11 @@ return redirect('products');
         'title'=> 'required',
         'content'=> 'required',
         'image'=> 'required',
-        'category_id'=> 'required',
-
     ]);
 
     $product->update($request->all());
 
-    return redirect('posts');
+    return redirect('products');
     }
 
     /**
@@ -108,6 +112,6 @@ return redirect('products');
     public function destroy(product $product)
     {
       $post->delete();
-return redirect('posts');
+return redirect('products');
     }
 }

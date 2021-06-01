@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -17,7 +18,12 @@ class CategoryController extends Controller
       $categories = category::all();
       return view('cat.index', ['categories'=>$categories]);
     }
-
+    public function viewProduct($category_id)
+    {
+      $data =[];
+      $data['category']= product::where('category_id',$category_id)->get();
+      return view('cat.show', $data);
+    }
     /**
      * Show the form for creating a new resource.
      *
