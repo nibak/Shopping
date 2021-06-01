@@ -12,7 +12,7 @@
           @method('DELETE')
           @csrf
 
-          <a class="btn btn-primary mx-1 " href="/products/{{$product->id}}">Show</a>
+          <a class="btn btn-primary mx-1 " href="/products/{{$product->id}}">Buy</a>
             @auth
           <a class="btn btn-primary mx-1" href="/products/{{$product->id}}/edit">Edit</a>
           <button type="submit" title="delete" class="btn btn-danger mx-1" >Delete</button>

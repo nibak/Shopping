@@ -63,7 +63,7 @@ return redirect('products');
      */
     public function show(product $product)
     {
-        //
+        return view('products.show', ['product'=>$product]);
     }
 
     /**

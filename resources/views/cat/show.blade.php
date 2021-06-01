@@ -14,7 +14,7 @@
 
               <div class="form-group col-6">
                 <label for="title">Category</label>
-                <input type="text" class="form-control @error('colour') is-invalid @enderror" id="category" name="catagory" value="{{$category->category_id}}">
+                <input type="text" class="form-control @error('colour') is-invalid @enderror" id="colour" name="colour" value="{{$category->category_id}}">
               </div>
             </div>
 
